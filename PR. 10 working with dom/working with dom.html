@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<style>
+    .magic_box {
+        display: flex;
+        justify-content: center;
+    }
+    .box {
+        transition: all 0.5s;
+        height: 250px;
+        width: 250px;
+        background-color: rgb(243, 164, 236);
+        margin: 20px;
+        border-radius: 3%;
+        box-shadow: 3px 3px 5px 3px rgb(161, 160, 160);
+    }
+    img {
+        height: 250px;
+        width: 250px;
+        object-fit: cover;
+        border-radius: 3%;
+    }
+    button {
+        margin-top: 100px;
+        height: 40px;
+        width: 20%;
+        color: whitesmoke;
+        background-color: rgb(4, 106, 143);
+        border-radius: 50px;
+        border: 0;
+        box-shadow: 2px 2px 5px 2px rgb(161, 160, 160);
+    }
+</style>
+<body>
+    <div class="magic_box">
+        <div class="box" id="box"></div>
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2">
+            <img id="img_"/> 
+            <p id="para_"></p>
+        </div>
+    </div>
+    <div class="magic_box"><button id="btn_" onclick="auto()"> AUTO CLICK</button></div>
+    <script>
+      let arr = [{img:1},{img:2},{img:3},{img:4},{img:5},{img:6},{img:7},{img:8},{img:9},{img:10},{img:11},{img:12},{img:13},{img:14},{img:15},{img:16},{img:17},{img:18},{img:19},{img:20},{img:21},{img:22},]
+      var box_1 = document.getElementById('box');
+        box_1.addEventListener("mouseover", box_1_eve);
+        function box_1_eve() {
+            box_1.style.scale = Math.random() * 1.5;
+            box_1.style.rotate = `${Math.random() * 360}deg`;
+      
+            box_1.style.background = `#${Math.floor(Math.random() * 10000)}`;
+        }
+        var box_2 = document.getElementById('box1');
+        box_2.addEventListener("mouseover", box_2_eve);
+        function box_2_eve() {
+            box_2.style.background = `#${Math.floor(Math.random() * 10000)}`;
+        }
+        var box_3 = document.getElementById('box2');
+        box_3.addEventListener("mouseover",box_3_eve);
+        function box_3_eve(){            
+            let random = Math.floor(Math.random()* (0-22)+22);
+            let i = random;
+            box_3.style.background = `url(./imgs/${arr[i].img}.jpg)`;
+            box_3.style.background =arr_p;
+            box_3.style.backgroundSize = `cover`;
+        }
+        function auto() {
+                setInterval(box_1_eve, 1000);
+                setInterval(box_2_eve, 1000);
+                setInterval(box_3_eve, 1000);
+                document.getElementById('btn_').style.display = "none";
+        }
+    </script>
+</body>
+</html>
